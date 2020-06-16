@@ -79,4 +79,4 @@ To write two classes in C++ with one matrix class and vector class </br>
 ##Sample output
 
 
-<img src="./output_screenshot.PNG" alt="image_"	title="Sample ouput" width="840" height="400" />
+<img src="./output_screenshot.PNG" alt="image_"	title="Sample ouput"  />
