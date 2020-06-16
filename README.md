@@ -76,7 +76,7 @@ To write two classes in C++ with one matrix class and vector class </br>
         3. MyMatrix<MyVector>* operator+( MyMatrix<MyVector> &matrix1, MyMatrix<MyVector> &matrix2);
             - **Addition of two matrices**
 
-##Sample output
+## Sample output
 
 
 <img src="./output_screenshot.PNG" alt="image_"	title="Sample ouput"  />
