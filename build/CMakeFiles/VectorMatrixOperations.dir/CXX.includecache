@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/Priya/New folder/VectorMatrixOperations/MyMatrix.cpp
+MyVector.h
+D:/Priya/New folder/VectorMatrixOperations/MyVector.h
+MyMatrix.h
+D:/Priya/New folder/VectorMatrixOperations/MyMatrix.h
+iostream
+-
+
+D:/Priya/New folder/VectorMatrixOperations/MyMatrix.h
+MyVector.h
+D:/Priya/New folder/VectorMatrixOperations/MyVector.h
+
+D:/Priya/New folder/VectorMatrixOperations/MyVector.cpp
+MyVector.h
+D:/Priya/New folder/VectorMatrixOperations/MyVector.h
+iostream
+-
+memory
+-
+iomanip
+-
+
+D:/Priya/New folder/VectorMatrixOperations/MyVector.h
+memory
+-
+iomanip
+-
+
+D:/Priya/New folder/VectorMatrixOperations/main.cpp
+MyMatrix.cpp
+D:/Priya/New folder/VectorMatrixOperations/MyMatrix.cpp
+MyVector.cpp
+D:/Priya/New folder/VectorMatrixOperations/MyVector.cpp
+iostream
+-
+

@@ -50,7 +50,6 @@ To write two classes in C++ with one matrix class and vector class </br>
     * Below constructors are created 
         * Default constructor with no parameter
         * Constructor with input as square matrix size and initial values
-        * Constructor with array of vectors
         * Constructor with input as a list of vectors to create **dynamic matrix**
         * Constructors based on **Rule of three**
             * copy constructor
@@ -77,3 +76,7 @@ To write two classes in C++ with one matrix class and vector class </br>
         3. MyMatrix<MyVector>* operator+( MyMatrix<MyVector> &matrix1, MyMatrix<MyVector> &matrix2);
             - **Addition of two matrices**
 
+##Sample output
+
+
+<img src="./output_screenshot.PNG" alt="image_"	title="Sample ouput" width="840" height="400" />

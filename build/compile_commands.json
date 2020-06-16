@@ -1,0 +1,17 @@
+[
+{
+  "directory": "D:/Priya/New folder/VectorMatrixOperations/build",
+  "command": "C:\\mingw\\mingw32\\bin\\g++.exe   -g -o CMakeFiles\\VectorMatrixOperations.dir\\main.cpp.obj -c \"D:\\Priya\\New folder\\VectorMatrixOperations\\main.cpp\"",
+  "file": "D:/Priya/New folder/VectorMatrixOperations/main.cpp"
+},
+{
+  "directory": "D:/Priya/New folder/VectorMatrixOperations/build",
+  "command": "C:\\mingw\\mingw32\\bin\\g++.exe   -g -o CMakeFiles\\VectorMatrixOperations.dir\\MyMatrix.cpp.obj -c \"D:\\Priya\\New folder\\VectorMatrixOperations\\MyMatrix.cpp\"",
+  "file": "D:/Priya/New folder/VectorMatrixOperations/MyMatrix.cpp"
+},
+{
+  "directory": "D:/Priya/New folder/VectorMatrixOperations/build",
+  "command": "C:\\mingw\\mingw32\\bin\\g++.exe   -g -o CMakeFiles\\VectorMatrixOperations.dir\\MyVector.cpp.obj -c \"D:\\Priya\\New folder\\VectorMatrixOperations\\MyVector.cpp\"",
+  "file": "D:/Priya/New folder/VectorMatrixOperations/MyVector.cpp"
+}
+]

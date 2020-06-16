@@ -1,0 +1,3 @@
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\VectorMatrixOperations.dir/objects.a
+C:\mingw\mingw32\bin\ar.exe cr CMakeFiles\VectorMatrixOperations.dir/objects.a @CMakeFiles\VectorMatrixOperations.dir\objects1.rsp
+C:\mingw\mingw32\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\VectorMatrixOperations.dir/objects.a -Wl,--no-whole-archive -o VectorMatrixOperations.exe -Wl,--out-implib,libVectorMatrixOperations.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\VectorMatrixOperations.dir\linklibs.rsp
