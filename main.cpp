@@ -58,23 +58,30 @@ int main() {
     //Matrix
     MyMatrix<MyVector<double>> matrix0();
     MyMatrix<MyVector<double>> matrix1(25, 1);
-    MyMatrix<MyVector<double>> matrix2 = {vector5, vector6, vector7, vector8};
+    MyVector<double> a = {1.0, 2, 3.0};
+    MyVector<double> b = {1.0, 2.0, 3.0};
+    MyVector<double> c = {1.0, 2.0, 3.0};
+    MyVector<double> d = {100, 2.0, 3.0};
+    MyMatrix<MyVector<double>> matrix2 = {a, b, c};
+
+    //MyMatrix<MyVector<double>> matrix2 = {vector5, vector6, vector7, vector8};
     cout << "Matrix2";
     matrix2.display_elements();
     cout << "vector4\n";
     vector4.display_elements();
 
     //Vector and Matrix multiplication
-    MyVector<double> vector10 = matrix2 * vector4;
+    MyVector<double> my = matrix2 * d;
+
     cout << "Product vector";
-    vector10.display_elements();
+    my.display_elements();
 
 
     delete[] &vector6;
     delete[] &vector7;
     delete[] &vector8;
     delete[] &vector9;
-    delete[] &vector10;
+    delete[] &my;
 
     return 0;
 };

@@ -35,7 +35,7 @@ public:
 	// Get size
 	int get_size();
 	// Get current capacity
-	int get_current_capacity();
+	int get_current_capacity() const;
 	// Push elements
 	void push(T element);
 	// remove last element
@@ -166,7 +166,7 @@ int MyVector<T>::get_size()
 
 //to access the current_capacity of vector
 template<class T>
-int MyVector<T>::get_current_capacity()
+int MyVector<T>::get_current_capacity() const 
 {
     return this->current_capacity;
 }

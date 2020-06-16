@@ -103,21 +103,13 @@ MyMatrix<MyVector>::MyMatrix(std::initializer_list<MyVector> list)
 {
 	int index = 0;
     int max_length=0;
+    columns =list.begin()->get_current_capacity();
 	for (auto i = list.begin(); i != list.end(); i++) 
     {
+        if (i->get_current_capacity() != columns)
+            cout << "Error: Vectors are of unequal length.";
 		start[index] = *i;
 		++index;
-        // if ((*i).get_current_capacity() >= max_length)
-        //     max_length = (*i).get_current_capacity();
-        // else
-        // {
-        //     for (int i=(*i).get_current_capacity(); i < max_length; ++i)
-        //     {
-        //         (*i).push(0);
-        //     }
-        // }
-        // columns = max_length;
-        
     }
 }
 
@@ -202,6 +194,11 @@ template<class MyVector>
 MyVector& operator*(MyMatrix<MyVector> &matrix, MyVector vector)
 {
 	MyVector* product = new MyVector(matrix.get_rows(), 0.0);
+    if (matrix.columns != vector.get_size())
+    {
+        cout << "Matrix and vector multiplication not possible since shapes do not match\n";
+        return *product;
+    }
 	for (int index = 0; index < matrix.get_rows(); ++index)
 		(*product)[index] = vector * matrix[index];
 	return *product;
