@@ -7,77 +7,74 @@ int main() {
 
     // Vector of size 1, no element
     MyVector<double> vector0;
-    // prints empty vector
-    //vector0.display_elements();
+    cout << "Vector of zero elements\n";
+    vector0.display_elements();
 
     // Vector of arbitrary size with initial values
-    MyVector<double> vector1(25, 0.0);
-    // Prints the vector with initial values
-    //vector1.display_elements();
+    MyVector<double> vector1(25, 5.0);
+    cout << "Vector initialized with same values for all elements\n";
+    vector1.display_elements();
 
     // Vector from array
     double values[] = {1.0, 2.0, 3.0, 4.0};
     MyVector<double> vector2(4, values);
+    cout << "Vector created from array\n";
     vector2.display_elements();
 
+    // Vector created from brace-enclosed initializer list
+    MyVector<double> vector3 = {1.0, 2.0, 3.0};
+    vector3.display_elements();
+
     //Vector from for loop
-    MyVector<double> vector3;
-    for (double i=0; i<25; i++)
+    MyVector<double> vector4;
+    for (double i=1; i<=5; i++)
     {
-        vector3.push(i);
+        vector4.push(i);
     }
-    //vector3.display_elements();
+    vector4.display_elements();
 
     //Copy vector
-    MyVector<double> vector4 = vector3;
-    //vector4.display_elements();
+    MyVector<double> vector5 = vector4;
+    cout << "Vector5";
+    vector5.display_elements();
 
     //Scalar multiplication
     double scalar = 15;
-    MyVector<double> vector5 = vector4 * scalar;
-    MyVector<double> vector6 = scalar * vector4;
-    //vector5.display_elements();
-    //vector6.display_elements();
+    MyVector<double> vector6 = vector5 * scalar;
+    MyVector<double> vector7 = scalar * vector5;
+    cout << "Vector6";
+    vector6.display_elements();
+    cout << "Vector7";
+    vector7.display_elements();
 
-    //Vector addition
-    MyVector<double> vector7 = vector5 + vector6;
-    MyVector<double> vector8 = vector6 + vector5;
-    //vector7.display_elements();
-    //vector8.display_elements();
+    //Vector addition commutative
+    MyVector<double> vector8 = vector6 + vector7;
+    MyVector<double> vector9 = vector7 + vector6;
+    cout << "Vector8";
+    vector8.display_elements();
+    cout << "Vector9";
+    vector9.display_elements();
 
     //Matrix
     MyMatrix<MyVector<double>> matrix0();
-    MyMatrix<MyVector<double>> matrix1(25);
-    MyVector<double> vectors[] = {vector5, vector6, vector7, vector8};
-    MyMatrix<MyVector<double>> matrix2(4, vectors);
-    // matrix2.display_elements();
+    MyMatrix<MyVector<double>> matrix1(25, 1);
+    MyMatrix<MyVector<double>> matrix2 = {vector5, vector6, vector7, vector8};
+    cout << "Matrix2";
+    matrix2.display_elements();
+    cout << "vector4\n";
+    vector4.display_elements();
 
     //Vector and Matrix multiplication
-    MyVector<double> vector9 = matrix2 * vector3;
-    //vector9.display_elements();
-
-    double valuesa[] = {1.0, 2.0, 3.0};
-    double valuesb[] = {1.0, 2.0, 3.0};
-    double valuesc[] = {1.0, 2.0, 3.0};
-    double valuesd[] = {1.0, 2.0, 3.0};
-
-    MyVector<double> vectora(3, valuesa);
-    vectora.display_elements();
-    MyVector<double> vectorb(3, valuesb);
-    MyVector<double> vectorc(3, valuesc);
-    MyVector<double> vectord(3, valuesd);
-    MyVector<double> vectorsm[] = {vectora, vectorb, vectorc};
-    MyMatrix<MyVector<double>> matrixm(3, vectorsm);
-    MyVector<double> vectore = matrixm * vectord; 
-    vectore.display_elements();
+    MyVector<double> vector10 = matrix2 * vector4;
+    cout << "Product vector";
+    vector10.display_elements();
 
 
-    delete[] &vector5;
     delete[] &vector6;
     delete[] &vector7;
     delete[] &vector8;
     delete[] &vector9;
-    delete[] &vectore;
+    delete[] &vector10;
 
     return 0;
 };

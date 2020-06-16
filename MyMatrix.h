@@ -20,9 +20,11 @@ public:
     // Constructor with parameter
     MyMatrix(int m, int n);
     // Constructor with parameter
-    MyMatrix(int m);
+    MyMatrix(int m, double value);
     // Constructor with array of vectors
     MyMatrix(int m, MyVector* vectors);
+    // Brace-enclosed initializer list constructor
+	MyMatrix(std::initializer_list<MyVector> list);
     // Rule of three
     // Copy constructor
 	MyMatrix(const MyMatrix& source);
@@ -35,7 +37,7 @@ public:
 	void display_elements();
     //Vector multiplication with matrix
     template<class U>
-	friend U& operator*(MyMatrix<U> matrix, U vector);
+	friend U& operator*(MyMatrix<U> &matrix, U vector);
     //to access single elements
 	MyVector& operator[](const unsigned &index);
     // Get current capacity
@@ -50,12 +52,12 @@ MyMatrix<MyVector>::MyMatrix()
 
 // Constructor with one parameter
 template<class MyVector> 
-MyMatrix<MyVector>::MyMatrix(int m)
+MyMatrix<MyVector>::MyMatrix(int m, double value)
         :rows(m), columns(m), start(new MyVector[m])
 {
     for (int index=0; index < rows; ++index)
     {
-        MyVector vector(columns, 0.0);
+        MyVector vector(columns, value);
         start[index] = vector;
     }
 }
@@ -83,13 +85,40 @@ MyMatrix<MyVector>::MyMatrix(int m, MyVector* vectors)
         if (vectors[index].get_current_capacity() >= max_length)
             max_length = vectors[index].get_current_capacity();
         else
+        {
             for (int i=vectors[index].get_current_capacity(); i < max_length; ++i)
             {
                 vectors[index].push(0);
             }
+        }
         start[index] = vectors[index];
     } 
     columns = max_length;
+}
+
+// Brace-enclosed initializer list constructor
+template<class MyVector>
+MyMatrix<MyVector>::MyMatrix(std::initializer_list<MyVector> list)
+        :rows(list.size()), start(new MyVector[list.size()])
+{
+	int index = 0;
+    int max_length=0;
+	for (auto i = list.begin(); i != list.end(); i++) 
+    {
+		start[index] = *i;
+		++index;
+        // if ((*i).get_current_capacity() >= max_length)
+        //     max_length = (*i).get_current_capacity();
+        // else
+        // {
+        //     for (int i=(*i).get_current_capacity(); i < max_length; ++i)
+        //     {
+        //         (*i).push(0);
+        //     }
+        // }
+        // columns = max_length;
+        
+    }
 }
 
 // Copy constructor
@@ -145,12 +174,12 @@ template<class MyVector>
 void MyMatrix<MyVector>::display_elements()
 {
 	cout << "[";
+    cout << std::endl;
     for (int index = 0; index < rows; ++index)
     {
         start[index].display_elements();
-        cout << "," << std::endl;
     }
-	cout << "]";
+    cout << "]";
 	cout << std::endl;
 }
 
@@ -168,9 +197,9 @@ int MyMatrix<MyVector>::get_rows()
     return this->rows;
 }
 
-// // //Scalar multiplication of Matrix
+// Vector multiplication
 template<class MyVector>
-MyVector& operator*(MyMatrix<MyVector> matrix, MyVector vector)
+MyVector& operator*(MyMatrix<MyVector> &matrix, MyVector vector)
 {
 	MyVector* product = new MyVector(matrix.get_rows(), 0.0);
 	for (int index = 0; index < matrix.get_rows(); ++index)

@@ -20,6 +20,8 @@ public:
     explicit MyVector(int n, T value);
 	// Constructor with size and initial values
 	MyVector(int n, T *values);
+	// Brace-enclosed initializer list constructor
+	MyVector(std::initializer_list<T> list);
     // Rule of three
     // Copy constructor
 	MyVector(const MyVector& source);
@@ -71,7 +73,7 @@ MyVector<T>::MyVector(int n, T value)
 	}
 }
 
-// // Constructor with size and initial values
+// Constructor with size and initial values
 template<class T>
 MyVector<T>::MyVector(int n, T *values)
         :size(n), start(new T[n]), current_capacity(n)
@@ -79,6 +81,19 @@ MyVector<T>::MyVector(int n, T *values)
 	for (int index = 0; index < size; ++index)
 		start[index] = values[index]; 
 }
+
+// Brace-enclosed initializer list constructor
+template<class T>
+MyVector<T>::MyVector(std::initializer_list<T> list)
+        :size(list.size()), start(new T[list.size()]), current_capacity(list.size())
+{
+	int index = 0;
+	for (auto i = list.begin(); i != list.end(); i++) {
+				start[index] = *i;
+				++index;
+            }
+}
+
 
 // Copy constructor
 template<class T>
@@ -90,6 +105,7 @@ MyVector<T>::MyVector(const MyVector& source)
 
 }
 
+// Assignment constructor
 template<class T>
 inline MyVector<T>& MyVector<T>::operator=(const MyVector<T>& source)
 {
@@ -136,7 +152,7 @@ void MyVector<T>::display_elements()
 {
 	cout << "[";
     for (int index = 0; index < current_capacity; ++index)
-        cout << start[index] << "," << std::setw(5);
+        cout << start[index] << std::setw(5);
 	cout << "]";
 	cout << std::endl;
 }
