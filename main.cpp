@@ -42,17 +42,17 @@ int main() {
     double scalar = 15;
     MyVector<double> vector6 = vector5 * scalar;
     MyVector<double> vector7 = scalar * vector5;
-    cout << "Vector6";
+    //cout << "Vector6";
     vector6.display_elements();
-    cout << "Vector7";
+    //cout << "Vector7";
     vector7.display_elements();
 
     //Vector addition commutative
     MyVector<double> vector8 = vector6 + vector7;
     MyVector<double> vector9 = vector7 + vector6;
-    cout << "Vector8";
+    //cout << "Vector8";
     vector8.display_elements();
-    cout << "Vector9";
+    //cout << "Vector9";
     vector9.display_elements();
 
     //Matrix
@@ -67,8 +67,6 @@ int main() {
     //MyMatrix<MyVector<double>> matrix2 = {vector5, vector6, vector7, vector8};
     cout << "Matrix2";
     matrix2.display_elements();
-    cout << "vector4\n";
-    vector4.display_elements();
 
     //Vector and Matrix multiplication
     MyVector<double> my = matrix2 * d;
@@ -76,12 +74,31 @@ int main() {
     cout << "Product vector";
     my.display_elements();
 
+    matrix2.display_elements();
+
+    matrix2.push(a);
+    matrix2.display_elements();
+
+    // Scalar multiplication
+    //MyMatrix<MyVector<double>> product;
+    //product.display_elements();
+    MyMatrix<MyVector<double>>* product1 = matrix2 * 23.0;
+    (*product1).display_elements();
+
+    MyMatrix<MyVector<double>>* product2 = 23.0 * matrix2;
+    (*product2).display_elements();
+
+    MyMatrix<MyVector<double>>* sum = (*product1) + (*product2);
+    (*sum).display_elements();
 
     delete[] &vector6;
     delete[] &vector7;
     delete[] &vector8;
     delete[] &vector9;
     delete[] &my;
+    delete[] &product1;
+    delete[] &product2;
+    delete[] &sum;
 
     return 0;
 };
